@@ -84,7 +84,14 @@ public class BoardDataManager : MonoBehaviour
         int k = 0;
         for (int i = 0; i < XDimension; i++)
             for (int j = 0; j < YDimension; j++)
-                board[i, j] = input[k]; k++;
+                if(k < input.Length)
+                {
+                    board[i, j] = input[k];
+                    k++;
+                }
+                else
+                    board[i, j] = GetRandomAlphabet();
+
         return board;
     }
 
@@ -94,17 +101,57 @@ public class BoardDataManager : MonoBehaviour
         OutputData.text = String.Join(",", OutputWordList);
     } 
 
+    private string GetRandomAlphabet()
+    {
+        string[] Alphabet = new string[26] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
+        return Alphabet[UnityEngine.Random.Range(0, Alphabet.Length)];
+    }
+
+    public void ClearData()
+    {
+        BoardDimensionX.Select();
+        BoardDimensionX.text = "";
+        BoardDimensionY.Select();
+        BoardDimensionY.text = "";
+        BoardData.Select();
+        BoardData.text = "";
+        MinConstraint.Select();
+        MinConstraint.text = "";
+        MaxConstraint.Select();
+        MaxConstraint.text = "";
+        Dictionary.Select();
+        Dictionary.text = "";
+    }
+
+    public string GetBoardData()
+    {
+        return BoardData.text;
+    }
+
+    public string GetXDimesion()
+    {
+        return BoardDimensionX.text;
+    }
+
+    public string GetYDimesion()
+    {
+        return BoardDimensionY.text;
+    }
     #endregion
 
     #region Boggle Words Finder
 
-    // Add word with constraint check
-    private void AddWord(string str)
+    // Method to initiate the recursive call
+    private void GetWords(string[,] board)
     {
-        int wordLength = str.Length;
-        if(wordLength > MinConstrnt)
-            if(MaxConstrnt > 0 && MaxConstrnt > wordLength)
-                OutputWordList.Add(str);
+        // Position visited
+        bool[,] posVisited = new bool[XDimension, YDimension];
+        string str = "";
+
+        // Initializing recursion for every character
+        for (int i = 0; i < XDimension; i++)
+            for (int j = 0; j < YDimension; j++)
+                GetAllWords(board, posVisited, i, j, str);
     }
 
     // Recursive Function to get all the words  
@@ -129,18 +176,16 @@ public class BoardDataManager : MonoBehaviour
         posVisited[i, j] = false;
     }
 
-    // Method to initiate the recursive call
-    private void GetWords(string[,] board)
-    {
-        // Position visited
-        bool[,] posVisited = new bool[XDimension, YDimension];
-        string str = "";
 
-        // Initializing recursion for every character
-        for (int i = 0; i < XDimension; i++)
-            for (int j = 0; j < YDimension; j++)
-                GetAllWords(board, posVisited, i, j, str);
+    // Add word with constraint check
+    private void AddWord(string str)
+    {
+        int wordLength = str.Length;
+        if (wordLength > MinConstrnt)
+            if (MaxConstrnt > 0 && MaxConstrnt > wordLength)
+                OutputWordList.Add(str);
     }
+
 
     #endregion
 }
