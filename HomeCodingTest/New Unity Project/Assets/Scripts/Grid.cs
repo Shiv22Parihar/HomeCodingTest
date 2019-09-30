@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Grid : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class Grid : MonoBehaviour
         GameObject cellObject = new GameObject();
 
         //creates an empty object and adds a sprite renderer component -> set the sprite to cellSprite
+        cellObject.AddComponent<Text>().text = "T";
         cellObject.AddComponent<SpriteRenderer>().sprite = cellSprite;
 
         //catch the size of the sprite
