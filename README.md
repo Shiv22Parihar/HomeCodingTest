@@ -11,6 +11,9 @@ To start game, Follow Below Steps:
 4. Now you'll see Output screen, where Boggle Board would have generated as per the Given Input. Click on Get Words Button to get the Output.
 5. Output area will have Count of the Words along with the comma separated list of words.
 
+
+*** In Order to make it easy for the user, 2 sample datas are also added in the application. In order to get them, Click on Sample1 or Sample2 button in Input Panel to pre-fill the input fields with sample data.
+
 DIREACTION FOR INPUT DATA:
 
 1. Board Dimesion: Enter only numbers. No Alphabets.
@@ -42,8 +45,8 @@ Lets see fields from Input Panel.
 2. Board Data: This take Input as comma separated values of the boggle board.
 3. Dictionary: This consists of list of comma separated words towards which we need to cross check whether those words are present in the boggle board.
 4. Length Constraint: This consists of 2 inputs. One for Max Word Length Allowed, one for Minimum word length allowed.
-5. 3 Buttons: Clear Button is there for clearing all the data from Input form, Submit Button is for navigating out from the menu with setting the input given by user.
-	And Close button is there to close the Menu (This will also set the values which are set in the input fields).
+5. 3 Buttons: Clear Button is there for clearing all the data from Input form, Submit Button is for navigating out from the menu with setting the input given by user.And Close button is there to close the Menu (This will also set the values which are set in the input fields).
+6. 2 Buttons for Getting the sample Input Data are also added namely Sample1 & Sample2.
 
 Lets see OUTPUT Window:
 
