@@ -176,6 +176,42 @@ public class BoardDataManager : MonoBehaviour
     }
     #endregion
 
+    #region SampleData For Input
+    // Method to Input Sample data - 1
+    public void FillSample1()
+    {
+        BoardDimensionX.Select();
+        BoardDimensionX.text = "3";
+        BoardDimensionY.Select();
+        BoardDimensionY.text = "3";
+        BoardData.Select();
+        BoardData.text = "q,w,e,a,s,d,z,x,c";
+        MinConstraint.Select();
+        MinConstraint.text = "3";
+        MaxConstraint.Select();
+        MaxConstraint.text = "6";
+        Dictionary.Select();
+        Dictionary.text = "zax,qwedsaz,qaswed,qwert,za";
+    }
+
+    // Method to Input Sample data - 2
+    public void FillSample2()
+    {
+        BoardDimensionX.Select();
+        BoardDimensionX.text = "5";
+        BoardDimensionY.Select();
+        BoardDimensionY.text = "3";
+        BoardData.Select();
+        BoardData.text = "r,t,y,u,i,f,g,h,j,k,c,v,b,n,m";
+        MinConstraint.Select();
+        MinConstraint.text = "2";
+        MaxConstraint.Select();
+        MaxConstraint.text = "8";
+        Dictionary.Select();
+        Dictionary.text = "rtygfrt,rfvcgbt,llkmjfn,bnghrtyf,ik,rgtfvbnmk,hjyt,rgbjiuy";
+    } 
+    #endregion
+
     #region Boggle Words Finder
 
     // Method to initiate the recursive call
