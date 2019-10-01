@@ -71,6 +71,7 @@ Planned But Couldn't Implement:
 
 1. Scrumble button, to auto generate a boogle board.
 2. Proper validation on input fields, like handling exception cases like alphabatical input in integer fields, etc.
+3. Currently as characters in Board increases, Time increases very rapidly. So would have definalty worked on that for getting it better.
 
 
 # Sample Data
